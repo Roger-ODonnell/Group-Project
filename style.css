@@ -1,0 +1,16 @@
+section h1 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+section {
+    align-items: center!important;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn {
+    background-color: #bb2d3b;
+    color: white;
+}
