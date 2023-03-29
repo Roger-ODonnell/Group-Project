@@ -14,9 +14,9 @@
     />
     <!-- animate.style -->
     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
 
     <link rel="stylesheet" href="style.css" />
 
@@ -72,6 +72,19 @@
       function showkebab() {
         var img = document.getElementById("kebab");
         if (img.style.display === "none") {
+          img.classList.add("animate__animated", "animate__bounceIn");
+          img.style.display = "block";
+        } else {
+          img.style.display = "none";
+        }
+      }
+    </script>
+
+    <script>
+      function showImage() {
+        var img = document.getElementById("batman-image");
+        if (img.style.display === "none") {
+          img.classList.add("animate__animated", "animate__bounceIn");
           img.style.display = "block";
         } else {
           img.style.display = "none";
