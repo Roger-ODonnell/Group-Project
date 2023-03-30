@@ -23,7 +23,8 @@ h2{
 }
 
 .container {
-	width: 100%;
+  display: block;
+	max-width: 100%;
 }
 
 .container h1 {
@@ -31,17 +32,13 @@ h2{
 }
 
 #runaway-container {
-	position: absolute;
-	width: 150px;
   text-align: center;
-	margin-top: 100px;
+	margin-top: 20px;
 }
 
 #runaway {
-	width: 150px;
   background-color: rgb(209, 67, 67);
   color: white;
   border: transparent;
-  text-align: center;
 }
 
