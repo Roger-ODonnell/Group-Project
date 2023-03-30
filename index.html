@@ -17,18 +17,20 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
     />
-     
+
     <!--Custom Style sheet-->
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
     <title>Im Batman!</title>
   </head>
 
   <body class="p-3 mb-2 bg-dark text-white">
     <main>
-      <header class="d-flex justify-content-center align-items-center flex-column">
-
+      <h2>Group Project</h2>
+      <header
+        class="d-flex justify-content-center align-items-center flex-column"
+      >
         <h1 class="animate__animated animate__hinge">Batman Jump scare</h1>
-        <button type="button" class="btn btn-danger" onclick="showImage()">
+        <button type="button" class="btn btn-danger" onclick="ShowImage()">
           Call Batman
         </button>
         <!-- added batman Macbook-->
@@ -42,33 +44,34 @@
         <p>Press button to call batman</p>
       </header>
 
-   <div>
-    <section>
-      <h1>Order a kebab</h1>
-      <button class="btn order" onclick="showkebab()">Order</button>
-      <img
-        id="kebab"
-        src="https://media.tenor.com/wXsGCqqAP_IAAAAC/donor-kebab.gif"
-        alt=""
-        style="display: none"
-      />
-      <p>All Sammy's Idea</p>
-    </section>
-    
-    <section>
-        <button type="button" class="btn-danger" id="runaway-button" >Call Robin</button>
-        <p>Press button to call Robin</p>
-    </section>
-  </div>
-  </main>
-  
+      <section>
+        <h1>Order a kebab</h1>
+        <button class="order" onclick="ShowKebab()">Order</button>
+        <img
+          id="kebab"
+          src="https://media.tenor.com/wXsGCqqAP_IAAAAC/donor-kebab.gif"
+          alt=""
+          style="display: none"
+        />
+        <p>All Sammy's Idea</p>
+      </section>
+
+      <div class="container">
+        <h1>Click the button to call Robin</h1>
+        <div id="runaway-container">
+          <button id="runaway">Call Robin</button>
+        </div>
+      </div>
+    </main>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
     ></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script>
-      function showImage() {
+      function ShowImage() {
         var img = document.getElementById("batman-image");
         if (img.style.display === "none") {
           img.style.display = "block";
@@ -78,7 +81,7 @@
       }
     </script>
     <script>
-      function showkebab() {
+      function ShowKebab() {
         var img = document.getElementById("kebab");
         if (img.style.display === "none") {
           img.classList.add("animate__animated", "animate__bounceIn");
@@ -90,7 +93,7 @@
     </script>
 
     <script>
-      function showImage() {
+      function ShowImage() {
         var img = document.getElementById("batman-image");
         if (img.style.display === "none") {
           img.classList.add("animate__animated", "animate__bounceIn");
@@ -99,6 +102,33 @@
           img.style.display = "none";
         }
       }
+    </script>
+
+    <script>
+      var callRobin = {
+        init: function () {
+          this.attachEvents();
+        },
+
+        attachEvents: function () {
+          $("#runaway-container").on("hover", this.flyAway);
+          $("#runaway").on("click", this.showWin);
+        },
+
+        flyAway: function (e) {
+          mLeft = Math.random() * 300;
+          mTop = Math.random() * 300;
+
+          $("#runaway-container").css("margin-left", mLeft);
+          $("#runaway-container").css("margin-top", mTop);
+        },
+
+        showWin: function (e) {
+          alert("You called Robin!!!");
+        },
+      };
+
+      callRobin.init();
     </script>
   </body>
 </html>
